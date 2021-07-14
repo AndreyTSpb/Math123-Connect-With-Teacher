@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Math123 Connect With Teacher
  * Description: Плагин WordPress для отправки сообщения преподавателю. Слайды берутся из постов о преподах  () , для вставки плагина на странице использовать шорт-код [Math123_Connect_With_Teacher  id_teach="not"]Связаться с руководителем[/Math123_Connect_With_Teacher], в атрибутах надо указать идентификато записи о преподавателе, между тегами текст для кнопки
- * Plugin URI: https://
+ * Plugin URI: https://github.com/AndreyTSpb/Math123-Connect-With-Teacher.git
  * Author: Andrey Tynyany
  * Version: 1.0.1
  * Author URI: http://tynyany.ru

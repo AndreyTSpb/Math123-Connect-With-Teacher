@@ -7,6 +7,7 @@
  */
 
 ?>
+
 <div class="card-base-connect-subject-mennager">
     <img src="<?=$data['img'];?>" alt="" srcset="" class="yelow-frame radius">
     <h4><?=$data['teach_name'];?></h4>

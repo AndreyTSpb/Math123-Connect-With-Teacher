@@ -46,17 +46,17 @@ function math123_connect_with_teacher($atts, $content){
     /**
      * Подключение стиля
      */
-    add_action('wp_head', 'math123_connect_with_teacher_add_style');
+    //add_action('wp_head', 'math123_connect_with_teacher_add_style');
 
     /**
      * Подключили скрипт для обработки
      */
-    add_action('wp_footer', 'math123_connect_with_teacher_add_script');
+    //add_action('wp_footer', 'math123_connect_with_teacher_add_script');
 
     /**
      * Получаем посты со слайдами , из категории слайдер
      */
-    $post = math123_connect_with_teacher_get_posts((!empty($atts['id_teach']))?$atts['id_teach']:'218');
+    $post_1 = math123_connect_with_teacher_get_posts((!empty($atts['id_teach']))?$atts['id_teach']:'218');
     /**
      * Array (
      *  [name] => Трошин Константин Леонидович
@@ -70,14 +70,13 @@ function math123_connect_with_teacher($atts, $content){
     $data = array(
         'title'      => (!empty($content))?$content:'связаться с руководителем',
         'id_teach'   => (!empty($atts['id_teach']))?$atts['id_teach']:'218',
-        'img'        => $post['img'],
-        'teach_name' => $post['name'],
-        'education'  => $post['education'],
-        'info'       => $post['info'],
-        'email'      => $post['email']
+        'img'        => $post_1['img'],
+        'teach_name' => $post_1['name'],
+        'education'  => $post_1['education'],
+        'info'       => $post_1['info'],
+        'email'      => $post_1['email']
     );
 
-    $html = "";
     /**
      * Получим буфиризованый вывод шаблона
      */
@@ -127,11 +126,6 @@ function math123_connect_with_teacher_add_script(){
  * Получение постов
  */
 function math123_connect_with_teacher_get_posts($id_post){
-    /*
-     * Для использования тут метода setup_postdata($post),
-     * нужно обязательно обьявлять global $post; тогда будет работать
-     */
-    global $post;
     $post = get_post($id_post);
     /*Имя берем из названия поста*/
     $name      = $post->post_title;
@@ -144,7 +138,8 @@ function math123_connect_with_teacher_get_posts($id_post){
     /*email*/
     $email     = get_field('email', $id_post);
 
-    return compact('name','img', 'education', 'info', 'email');
+
+    return array('name' => $name, 'img' => $img, 'education' => $education, 'info' => $info, 'email' => $email);
 }
 
 

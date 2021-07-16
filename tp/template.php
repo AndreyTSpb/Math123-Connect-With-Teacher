@@ -26,33 +26,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post">
-                        <div style="display: none;">
-                            <input type="hidden" name="_wpcf7" value="155">
-                            <input type="hidden" name="_wpcf7_version" value="5.4">
-                            <input type="hidden" name="_wpcf7_locale" value="ru_RU">
-                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f155-o1">
-                            <input type="hidden" name="_wpcf7_container_post" value="0">
-                            <input type="hidden" name="_wpcf7_posted_data_hash" value="">
-                        </div>
+                    <form method="post" action="<?= admin_url('admin-ajax.php?action=send_email_ajax'); ?>" class="ajax-send-form">
                         <div class="row mt-2">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="ФИО">
+                                <input type="text" name="fio" class="form-control ajax-input" placeholder="ФИО">
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="E-Mail">
+                                <input type="email" name="email" class="form-control ajax-input" placeholder="E-Mail">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Телефон">
+                                <input type="phone" name="phone" class="form-control ajax-input" placeholder="Телефон">
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col">
-                                <textarea class="form-control" name="text" id="" cols="20" rows="5">Сообщения</textarea>
+                                <textarea class="form-control ajax-input" name="message" id="" cols="20" rows="5">Сообщения</textarea>
                             </div>
                         </div>
+                        <input type="hidden" name="to_email" value="<?=$data['email'];?>">
+                        <input type="hidden" name="subject" value="Запрос с формы - связаться с руководителем">
                         <button class="btn-sub green mt-2">Отправить</button>
                     </form>
                 </div>

@@ -54,7 +54,7 @@ function math123_connect_with_teacher($atts, $content){
     //add_action('wp_footer', 'math123_connect_with_teacher_add_script');
 
     /**
-     * Получаем посты со слайдами , из категории слайдер
+     * Получаем посты
      */
     $post_1 = math123_connect_with_teacher_get_posts((!empty($atts['id_teach']))?$atts['id_teach']:'218');
     /**
@@ -137,6 +137,7 @@ function math123_connect_with_teacher_get_posts($id_post){
     $info      = strip_tags(get_field('info', $id_post));
     /*email*/
     $email     = get_field('email', $id_post);
+    if(!empty($email)) $email = "math.123.spb@gmail.com";
 
 
     return array('name' => $name, 'img' => $img, 'education' => $education, 'info' => $info, 'email' => $email);
